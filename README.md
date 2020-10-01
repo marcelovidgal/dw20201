@@ -39,7 +39,7 @@ Seus repositórios locais consistem em três "árvores" mantidas pelo git. a pri
 No git, o projeto pode ter ramificações que são utilizadas para desenvolver funcionalidades isoladas umas das outras. A estas ramificações é dado o nome *branch*.
 Mas independente disso, todo projeto irá possuir um branch principal chamado *master*, e é a partir dele que outras ramificações serão criadas. A imagem abaixo ilustra esse processo.
 
-<img>
+![ilustracao_branches](https://github.com/marcelovidgal/dw20201/blob/master/img-readme-git/exemplo-6.png)
 
 Na imagem, o segmento chamado *feature* consiste em um branch criado a partir do *master*. Toda a versão do projeto, no momento em que o branch foi criado, será mantida em *feature*,
 permitindo você trabalhar em ouras funcionalidades de forma isolada ao segmento principal.
@@ -79,10 +79,10 @@ Se você deseja adicionar apenas um arquivo em específico que foi alterado, use
 git add <arquivo_alterado> 
 ```
 
-Entretanto, se você deseja adicionar todas as suas alterações feitas, utilize um asterisco para representar o todo:
+Entretanto, se você deseja adicionar todas as suas alterações feitas, utilize o comando da seguinte forma:
 
 ```
-git add *
+git add .
 ```
 
 Uma vez adicionada suas alterações, o próximo passo é confirmá-las.
