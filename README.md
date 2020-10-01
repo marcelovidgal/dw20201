@@ -1,9 +1,45 @@
+# Git Tutorial
+
+Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
+
+## Instalação
+
+Instale o [Git](https://git-scm.com/download/mac) no Mac Os 
+
+Instale o [Git](https://gitforwindows.org/) no Windows 
+
+Instale o [Git](https://book.git-scm.com/download/linux) no Linux
+
+## Criando novo repositório
+
+Crie uma nova pasta, abra-a e execute o comando para criar um novo repositório.
+
+```
+git init
+```
+
+## Obtenha um repositório
+
+Crie uma cópia de trabalho em um repositório local executando o comando.
+```
+git clone /caminho/para/o/repositório
+```
+Quando usar um servidor remoto, seu comando será.
+```
+git clone usuário@servidor:/caminho/para/o/repositório
+```
+
+
+## Fluxo de trabalho
+
+Seus repositórios locais consistem em três "árvores" mantidas pelo git. a primeira delas é sua **Working Directory** que contém os arquivos vigentes. a segunda **Index** que funciona como uma área temporária e finalmente a **HEAD** que aponta para o último commit (confirmação) que você fez.
+
 ## Ramificações (branches)
 
 No git, o projeto pode ter ramificações que são utilizadas para desenvolver funcionalidades isoladas umas das outras. A estas ramificações é dado o nome *branch*.
 Mas independente disso, todo projeto irá possuir um branch principal chamado *master*, e é a partir dele que outras ramificações serão criadas. A imagem abaixo ilustra esse processo.
 
-<img>
+![ilustracao_branches](https://github.com/marcelovidgal/dw20201/blob/master/img-readme-git/exemplo-6.png)
 
 Na imagem, o segmento chamado *feature* consiste em um branch criado a partir do *master*. Toda a versão do projeto, no momento em que o branch foi criado, será mantida em *feature*,
 permitindo você trabalhar em ouras funcionalidades de forma isolada ao segmento principal.
@@ -43,10 +79,10 @@ Se você deseja adicionar apenas um arquivo em específico que foi alterado, use
 git add <arquivo_alterado> 
 ```
 
-Entretanto, se você deseja adicionar todas as suas alterações feitas, utilize um asterisco para representar o todo:
+Entretanto, se você deseja adicionar todas as suas alterações feitas, utilize o comando da seguinte forma:
 
 ```
-git add *
+git add .
 ```
 
 Uma vez adicionada suas alterações, o próximo passo é confirmá-las.
