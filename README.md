@@ -112,3 +112,49 @@ git remote add origin <servidor>
 ```
 
 A partir disso, você poderá enviar suas alterações para o servidor remoto selecionado.
+
+## Sobrescrevendo alterações locais
+
+Caso você tenha cometido algum erro local e deseja sobrescrevê-lo antes do commit, utilize o seguinte comando:
+
+```
+git checkout -- <arquivo>
+```
+
+Dessa forma, você substituirá as alterações na árvore de trabalho com o conteúdo mais recente no **Head**, mantando as alterações já adicionadas ao index.
+
+:warning: É importante se ater à utilização desse comando, uma vez que, ao utilizá-lo, todas as mudanças realizadas no arquivo desaparecerão,  pois você esterá copiando outro arquivo sobre ele, retornando ao estado do ultimo commit local.
+
+Se caso você optar por remover todas as alterações e commits locais, recupere o histórico mais recente do servidor e aponte para seu branch master local utilizando os seguintes comandos:
+
+```
+git fetch origin
+```
+
+```
+git reset --hard origin / master
+```
+
+## Dicas
+
+Segue algumas dicas que poderão ser uteis ao usuário:
+
+Para saídas coloridas, utilize o seguinte comando:
+
+```
+git config color.ui true
+```
+
+Para dicionar conteúdos interativos, utilize o seguinte comand:
+
+```
+git add -i
+```
+
+Para exibir o log em uma única linha por commit, utilize o seguinte comando:
+
+```
+git config format.pretty oneline
+```
+
+
