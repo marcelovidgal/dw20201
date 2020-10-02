@@ -137,7 +137,7 @@ git reset --hard origin / master
 
 ## Dicas
 
-Segue algumas dicas que poderão ser uteis ao usuário:
+Segue algumas dicas que poderão ser úteis ao usuário:
 
 Para saídas coloridas, utilize o seguinte comando:
 
@@ -145,7 +145,7 @@ Para saídas coloridas, utilize o seguinte comando:
 git config color.ui true
 ```
 
-Para dicionar conteúdos interativos, utilize o seguinte comand:
+Para dicionar conteúdos interativos, utilize o seguinte comando:
 
 ```
 git add -i
