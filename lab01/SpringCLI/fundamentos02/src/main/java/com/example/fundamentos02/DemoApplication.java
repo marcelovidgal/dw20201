@@ -1,14 +1,13 @@
-package webserver.lab01;
+package com.example.fundamentos02;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Lab01Application {
+public class DemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Lab01Application.class, args);
-		System.out.println("Hello, World!");
+		SpringApplication.run(DemoApplication.class, args);
 	}
 
 }
