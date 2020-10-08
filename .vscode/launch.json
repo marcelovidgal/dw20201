@@ -2,6 +2,31 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - DemoApplication",
+            "request": "launch",
+            "mainClass": "com.example.demo.DemoApplication"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - RestfulwebserviceApplication",
+            "request": "launch",
+            "mainClass": "lab04.restfulwebservice.RestfulwebserviceApplication"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ConsumingRestApplication",
+            "request": "launch",
+            "mainClass": "lab04.restfulwebservice.ConsumingRestApplication"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DemoApplication",
+            "request": "launch",
+            "mainClass": "com.example.fundamentos.DemoApplication",
+            "projectName": "fundamentos"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-Lab01Application<lab01>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
