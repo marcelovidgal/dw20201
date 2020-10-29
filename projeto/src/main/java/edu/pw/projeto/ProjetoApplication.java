@@ -56,7 +56,7 @@ public class ProjetoApplication {
 			//ObjectMapper mapper = new ObjectMapper();
 			//Entes[] entes = mapper.readValue(jsonUrl, Entes[].class);
 			
-			URL jsonUrl = new URL("http://app.tce.ma.gov.br:8889/tce/api/servidores/2100055");
+			URL jsonUrl = new URL("http://app.tce.ma.gov.br:80/tce/api/servidores/2100055");
 		
 
 			final JsonFactory factory = new JsonFactory();
@@ -78,7 +78,7 @@ public class ProjetoApplication {
 
 
 				servidoresRepository.save(new Servidores(servidor.getServidorId(), servidor.getNome(), servidor.getCargo(),  servidor.getCnpj(), 
-				servidor.getCpf(), servidor.getMes(), servidor.getAno(), servidor.getValorBruto(), servidor.getUnidade(), servidor.getNaturezaCargo(),
+				servidor.getCpf(), servidor.getMes(), servidor.getAno(), servidor.getValorBruto(),
 				naturezaCargo, unidade,
 				servidor.getAcumulos(), servidor.getValorBrutoTotal(), servidor.getNomeUnidadeLotacao()));
 				

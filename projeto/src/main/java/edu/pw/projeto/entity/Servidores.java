@@ -67,7 +67,7 @@ public class Servidores {
 	}
 
 	public Servidores(Integer servidorId, String nome, String cargo, String cnpj, String cpf, Integer mes, Integer ano, Double valorBruto, 
-	JsonNode unidade, JsonNode naturezaCargo, NaturezaCargo naturezaCargoId, Unidade unidadeId, Integer acumulos, Double valorBrutoTotal, String nomeUnidadeLotacao) {
+	NaturezaCargo naturezaCargoId, Unidade unidadeId, Integer acumulos, Double valorBrutoTotal, String nomeUnidadeLotacao) {
 
         this.acumulos = acumulos;
         this.ano = ano;
