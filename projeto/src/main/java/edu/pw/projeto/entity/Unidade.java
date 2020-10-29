@@ -3,29 +3,25 @@ package edu.pw.projeto.entity;
 import javax.persistence.*;
 
 @Entity
-public class Entes {
+public class Unidade {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Id")
     private Integer id;
     
-    @Column(name = "enteId")
-	private Integer enteId;
+    @Column(name = "unidadeId")
+	private Integer unidadeId;
 
 	@Column(name = "nome") //, nullable = false (obrigatório)
 	private String nome;
 
-	@Column(name="orgaos")
-	private String orgaos;
-
-	public Entes() {
+	public Unidade() {
 	}
 
-	public Entes(Integer enteId, String nome, String orgaos) {
-        this.enteId = enteId;
+	public Unidade(Integer unidadeId, String nome) {
+        this.unidadeId = unidadeId;
         this.nome = nome;
-		this.orgaos = orgaos;
 	}
     
     public Integer getId() {
@@ -36,12 +32,12 @@ public class Entes {
 		this.id = id;
 	}
 
-	public Integer getEnteId() {
-		return enteId;
+	public Integer getUnidadeId() {
+		return unidadeId;
 	}
 
-	public void setEnteId(Integer enteId) {
-		this.enteId = enteId;
+	public void setUnidadeId(Integer unidadeId) {
+		this.unidadeId = unidadeId;
 	}
 
 	public String getNome() {
@@ -51,16 +47,7 @@ public class Entes {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public String getOrgaos() {
-		return orgaos;
-	}
-
-	public void setOrgaos(String orgaos) {
-		this.orgaos = orgaos;
-	}
-
-
+/*
 	@Override
 	public String toString() {
 		return "{" +
@@ -69,5 +56,5 @@ public class Entes {
 			", nome='" + nome + "\'" +
 			", orgaos='" + orgaos + "\'" +
 			"}";
-	}
+	}*/
 }

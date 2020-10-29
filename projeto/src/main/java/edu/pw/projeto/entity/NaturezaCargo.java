@@ -3,29 +3,25 @@ package edu.pw.projeto.entity;
 import javax.persistence.*;
 
 @Entity
-public class Entes {
+public class NaturezaCargo {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Id")
     private Integer id;
     
-    @Column(name = "enteId")
-	private Integer enteId;
+    @Column(name = "naturezaCargoId")
+	private Integer naturezaCargoId;
 
 	@Column(name = "nome") //, nullable = false (obrigatório)
 	private String nome;
 
-	@Column(name="orgaos")
-	private String orgaos;
-
-	public Entes() {
+	public NaturezaCargo() {
 	}
 
-	public Entes(Integer enteId, String nome, String orgaos) {
-        this.enteId = enteId;
+	public NaturezaCargo(Integer naturezaCargoId, String nome) {
+        this.naturezaCargoId = naturezaCargoId;
         this.nome = nome;
-		this.orgaos = orgaos;
 	}
     
     public Integer getId() {
@@ -36,12 +32,12 @@ public class Entes {
 		this.id = id;
 	}
 
-	public Integer getEnteId() {
-		return enteId;
+	public Integer getNaturezaCargoId() {
+		return naturezaCargoId;
 	}
 
-	public void setEnteId(Integer enteId) {
-		this.enteId = enteId;
+	public void setNaturezaCargoId(Integer naturezaCargoId) {
+		this.naturezaCargoId = naturezaCargoId;
 	}
 
 	public String getNome() {
@@ -51,16 +47,7 @@ public class Entes {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public String getOrgaos() {
-		return orgaos;
-	}
-
-	public void setOrgaos(String orgaos) {
-		this.orgaos = orgaos;
-	}
-
-
+/*
 	@Override
 	public String toString() {
 		return "{" +
@@ -69,5 +56,5 @@ public class Entes {
 			", nome='" + nome + "\'" +
 			", orgaos='" + orgaos + "\'" +
 			"}";
-	}
+	}*/
 }
