@@ -7,35 +7,31 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Unidade {
+public class Orgao {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Id")
     private Integer id;
     
-    @Column(name = "unidadeId")
-	private Integer unidadeId;
+    @Column(name = "orgaoId")
+	private Integer orgaoId;
 
-	@Column(name = "nome") //, nullable = false (obrigatório)
+	@Column(name = "nome")
 	private String nome;
 
 	@Transient
 	@Column(name = "ente")
 	private JsonNode ente;
 
-	@Transient
-	@Column(name = "orgao")
-	private JsonNode orgao;
+	public Orgao() {
 
-	public Unidade() {
 	}
 
-	public Unidade(Integer unidadeId, String nome, JsonNode ente, JsonNode orgao) {
-        this.unidadeId = unidadeId;
+	public Orgao(Integer orgaoId, String nome, JsonNode ente) {
+        this.orgaoId = orgaoId;
 		this.nome = nome;
-		this.ente = ente;
-		this.orgao = orgao;
+		this.ente = ente;		
 	}
     
     public Integer getId() {
@@ -46,12 +42,12 @@ public class Unidade {
 		this.id = id;
 	}
 
-	public Integer getUnidadeId() {
-		return unidadeId;
+	public Integer getOrgaoId() {
+		return orgaoId;
 	}
 
-	public void setUnidadeId(Integer unidadeId) {
-		this.unidadeId = unidadeId;
+	public void setOrgaoId(Integer orgaoId) {
+		this.orgaoId = orgaoId;
 	}
 
 	public String getNome() {
@@ -62,20 +58,12 @@ public class Unidade {
 		this.nome = nome;
 	}
 
-	public JsonNode getEnte() {
+	public JsonNode getEntes() {
 		return ente;
 	}
 
-	public void setEnte(JsonNode ente) {
+	public void setEntes(JsonNode ente) {
 		this.ente = ente;
-	}
-
-	public JsonNode getOrgao() {
-		return orgao;
-	}
-
-	public void setOrgao(JsonNode orgao) {
-		this.orgao = orgao;
 	}
 
 }

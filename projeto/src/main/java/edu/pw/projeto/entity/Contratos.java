@@ -34,19 +34,12 @@ public class Contratos {
     
 	@Column(name="dataPublicacaoContrato")
     private String dataPublicacaoContrato;
-        
-	@Column(name="dataRecisao")
-    private String dataRecisao;
-        
+
 	@Column(name="dataVigenciaFim")
     private String dataVigenciaFim;
         
 	@Column(name="dataVigenciaInicio")
     private String dataVigenciaInicio;
-	
-    @Transient    
-	@Column(name = "documentos")
-	private JsonNode documentos;
     
     @Transient
     @Column(name = "fornecedor")
@@ -57,8 +50,8 @@ public class Contratos {
     private JsonNode status;
 
     @Transient
-    @Column(name = "unidade")  // USAR A MESMA CLASSE?
-    private JsonNode unidade;  // USAR A MESMA CLASSE?
+    @Column(name = "unidade")
+    private JsonNode unidade;
 
 	@Column(name = "exercicio")
 	private Integer exercicio;
@@ -69,38 +62,35 @@ public class Contratos {
     @Column(name = "meioPublicacao")
 	private String meioPublicacao;
 
-    @Column(name = "motivoRecisao")
-	private String motivoRecisao;
-
     @Column(name = "numeroContrato")
     private String numeroContrato;
-    
-    @Column(name = "objeto")
+	
+    @Column(name = "objeto", columnDefinition="TEXT")	
     private String objeto;
-    
-    @Column(name = "recisao")
-    private String recisao;
 
     @Column(name = "valorContrato")
     private Double valorContrato;
-    
+	
+	// Relacionamentos
+	@ManyToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "unidadeId")
+	private Unidade unidadeId;
 
+	@ManyToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "statusId")
+	private StatusLicitacao statusId;
 
-	//@ManyToOne(cascade = {CascadeType.ALL})
-	//@JoinColumn(name = "naturezaCargoId")
-	//private NaturezaCargo naturezaCargoId;
-//
-	//@ManyToOne(cascade = {CascadeType.ALL})
-	//@JoinColumn(name = "unidadeId")
-	//private Unidade unidadeId;
+	@ManyToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "fornecedorId")
+	private Fornecedores fornecedorId;
 
 	public Contratos() {
 	}
 
-	public Contratos(Integer contratoId,  JsonNode fornecedor, JsonNode status, JsonNode unidade, String objeto, Integer exercicio, 
+	public Contratos(Integer contratoId, Fornecedores fornecedorId, StatusLicitacao statusId, Unidade unidadeId, String objeto, Integer exercicio, 
 					 Integer licitacaoId, String dataAssinatura, String numeroContrato, String dataVigenciaInicio, String dataVigenciaFim, 
 					 String dataPublicacaoContrato, String dataEnvioPublicacao,  String dataEnvio, Double valorContrato, String meioPublicacao, 
-					 String recisao, String dataRecisao, String motivoRecisao, String anoContrato, Boolean coronavirus, JsonNode documentos) {
+					 String anoContrato, Boolean coronavirus) {
 		this.contratoId = contratoId;
 		this.anoContrato = anoContrato;
 		this.coronavirus = coronavirus;
@@ -108,20 +98,16 @@ public class Contratos {
 		this.dataEnvio = dataEnvio;
 		this.dataEnvioPublicacao = dataEnvioPublicacao;
 		this.dataPublicacaoContrato = dataPublicacaoContrato;
-		this.dataRecisao = dataRecisao;
 		this.dataVigenciaFim = dataVigenciaFim;
 		this.dataVigenciaInicio = dataVigenciaInicio;
-		this.documentos = documentos;
-		this.fornecedor = fornecedor;
-		this.status = status;
-		this.unidade = unidade;
+		this.fornecedorId = fornecedorId;
+		this.statusId = statusId;
+		this.unidadeId = unidadeId;
 		this.exercicio = exercicio;
 		this.licitacaoId = licitacaoId;
 		this.meioPublicacao = meioPublicacao;
-		this.motivoRecisao = motivoRecisao;
 		this.numeroContrato = numeroContrato;
 		this.objeto = objeto;
-		this.recisao = recisao;
 		this.valorContrato = valorContrato;
 	}
 
@@ -189,14 +175,6 @@ public class Contratos {
 		this.dataPublicacaoContrato = dataPublicacaoContrato;
 	}
 
-	public String getDataRecisao() {
-		return dataRecisao;
-	}
-
-	public void setDataRecisao(String dataRecisao) {
-		this.dataRecisao = dataRecisao;
-	}
-
 	public String getDataVigenciaFim() {
 		return dataVigenciaFim;
 	}
@@ -211,14 +189,6 @@ public class Contratos {
 
 	public void setDataVigenciaInicio(String dataVigenciaInicio) {
 		this.dataVigenciaInicio = dataVigenciaInicio;
-	}
-
-	public JsonNode getDocumentos() {
-		return documentos;
-	}
-
-	public void setDocumentos(JsonNode documentos) {
-		this.documentos = documentos;
 	}
 
 	public JsonNode getFornecedor() {
@@ -269,14 +239,6 @@ public class Contratos {
 		this.meioPublicacao = meioPublicacao;
 	}
 
-	public String getMotivoRecisao() {
-		return motivoRecisao;
-	}
-
-	public void setMotivoRecisao(String motivoRecisao) {
-		this.motivoRecisao = motivoRecisao;
-	}
-
 	public String getNumeroContrato() {
 		return numeroContrato;
 	}
@@ -291,14 +253,6 @@ public class Contratos {
 
 	public void setObjeto(String objeto) {
 		this.objeto = objeto;
-	}
-
-	public String getRecisao() {
-		return recisao;
-	}
-
-	public void setRecisao(String recisao) {
-		this.recisao = recisao;
 	}
 
 	public Double getValorContrato() {
