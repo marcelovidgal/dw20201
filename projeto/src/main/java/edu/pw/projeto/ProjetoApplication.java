@@ -12,13 +12,18 @@ import edu.pw.projeto.entity.Entes;
 import edu.pw.projeto.entity.Servidores;
 import edu.pw.projeto.entity.NaturezaCargo;
 import edu.pw.projeto.entity.Unidade;
+import edu.pw.projeto.entity.Fornecedores;
+import edu.pw.projeto.entity.Socios;
+import edu.pw.projeto.entity.Contratos;
 import edu.pw.projeto.repository.EntesRepository;
 import edu.pw.projeto.repository.NaturezaCargoRepository;
 import edu.pw.projeto.repository.UnidadeRepository;
 import edu.pw.projeto.repository.ServidoresRepository;
+import edu.pw.projeto.repository.FornecedoresRepository;
+import edu.pw.projeto.repository.SociosRepository;
+
 import java.util.*;
-
-
+import org.springframework.http.ResponseEntity;
 import com.fasterxml.jackson.core.*;
 import com.google.gson.Gson;
 import java.net.URL;
@@ -42,10 +47,12 @@ public class ProjetoApplication {
 
 	@Bean
 	public CommandLineRunner run(RestTemplate restTemplate, EntesRepository entesRepository, ServidoresRepository servidoresRepository, 
-								NaturezaCargoRepository naturezaCargoRepository, UnidadeRepository unidadeRepository) throws Exception {
+								NaturezaCargoRepository naturezaCargoRepository, UnidadeRepository unidadeRepository, FornecedoresRepository fornecedoresRepository, SociosRepository sociosRepository) throws Exception {
 		Gson gson = new Gson();
 
 		return args -> {
+
+			// ============== ENTES ==============
 			/*Entes[] entes  = restTemplate.getForObject("http://app.tce.ma.gov.br:8889/tce/api/entes", Entes[].class);
 
 			for (Entes ente : entes) {
@@ -56,6 +63,8 @@ public class ProjetoApplication {
 			//ObjectMapper mapper = new ObjectMapper();
 			//Entes[] entes = mapper.readValue(jsonUrl, Entes[].class);
 			
+
+			// ============== SERVIDORES ==============
 			URL jsonUrl = new URL("http://app.tce.ma.gov.br:80/tce/api/servidores/2100055");	
 
 			final JsonFactory factory = new JsonFactory();
@@ -79,14 +88,44 @@ public class ProjetoApplication {
 				servidoresRepository.save(new Servidores(servidor.getServidorId(), servidor.getNome(), servidor.getCargo(),  servidor.getCnpj(), 
 				servidor.getCpf(), servidor.getMes(), servidor.getAno(), servidor.getValorBruto(),
 				naturezaCargo, unidade,
-				servidor.getAcumulos(), servidor.getValorBrutoTotal(), servidor.getNomeUnidadeLotacao()))
+				servidor.getAcumulos(), servidor.getValorBrutoTotal(), servidor.getNomeUnidadeLotacao()));
 			}
+			
 
-			ResponseEntity<Fornecedores[]> r = restTemplate.getForEntity("http://app.tce.ma.gov.br:8889/tce/api/fornecedores?filtro=", Fornecedores[].class);
+			// ============== FORNECEDORES ============== 
+			//ResponseEntity<Fornecedores[]> fornecedores = restTemplate.getForEntity("http://app.tce.ma.gov.br:8889/tce/api/fornecedores?filtro=20005", Fornecedores[].class);
+			//ObjectMapper mapper = new ObjectMapper();
+//
+			//for(Fornecedores fornecedor : fornecedores.getBody()){
+			//	//System.out.println(fornecedor.getNome());
+			//	Socios socio = mapper.readValue(fornecedor.getSocios().toString(), Socios.class);	
+			//	fornecedoresRepository.save(new Fornecedores(fornecedor.getFornecedorId(), fornecedor.getNome(), fornecedor.getCpfCnpj(), socio.getId()));
+			//}
 
-			for(Fornecedores f : r.getBody()){
-				System.out.println(f.toString());
-			}
+			// ============== CONTRATOS ==============
+			//URL jsonUrl = new URL("http://app.tce.ma.gov.br:80/tce/api/contratos");	
+//
+			//final JsonFactory factory = new JsonFactory();
+			//final JsonParser parser = factory.createParser(jsonUrl);
+//
+			//// avança o stream até chegar no array
+			//while (parser.nextToken() != JsonToken.START_ARRAY) {
+			//    parser.nextToken();
+			//}
+//
+			//final ObjectMapper objectMapper = new ObjectMapper();
+//
+			//final List<Contratos> contratos = objectMapper.readValue(parser, new TypeReference<List<Contratos>>() {});
+//
+			//for (Contratos contrato : contratos) {
+			//
+//
+			//	//System.out.println(contrato.getUnidade());
+			//	Fornecedores fornecedor = objectMapper.readValue(contrato.getFornecedor().toString(), Fornecedores.class);
+			//	Unidade unidade = objectMapper.readValue(contrato.getUnidade().toString(), Unidade.class);
+			//	System.out.println(unidade.getNome());
+//
+			//}
 		};
 	}
 

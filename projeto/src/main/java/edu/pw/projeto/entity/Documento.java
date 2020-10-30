@@ -1,8 +1,12 @@
 package edu.pw.projeto.entity;
 
 import javax.persistence.*;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Documento {
 
 	@Id

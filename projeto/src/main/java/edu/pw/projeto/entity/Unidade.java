@@ -1,8 +1,12 @@
 package edu.pw.projeto.entity;
 
 import javax.persistence.*;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Unidade {
 
 	@Id
@@ -16,12 +20,17 @@ public class Unidade {
 	@Column(name = "nome") //, nullable = false (obrigatório)
 	private String nome;
 
+	@Transient
+	@Column(name = "ente")
+	private JsonNode ente;
+
 	public Unidade() {
 	}
 
-	public Unidade(Integer unidadeId, String nome) {
+	public Unidade(Integer unidadeId, String nome, JsonNode ente) {
         this.unidadeId = unidadeId;
-        this.nome = nome;
+		this.nome = nome;
+		this.ente = ente;
 	}
     
     public Integer getId() {
@@ -47,6 +56,15 @@ public class Unidade {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+	public JsonNode getEntes() {
+		return ente;
+	}
+
+	public void setEntes(JsonNode ente) {
+		this.ente = ente;
+	}
+
 /*
 	@Override
 	public String toString() {

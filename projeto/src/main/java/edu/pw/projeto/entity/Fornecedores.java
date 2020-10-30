@@ -1,16 +1,38 @@
-package com.example.consumingrest.entity;
+package edu.pw.projeto.entity;
 
+import javax.persistence.*;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
+@Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Fornecedores {
 
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+    
     private Integer fornecedorId;
-    private  String nome;
+    private String nome;
     private String cpfCnpj;
-    private Socios socios;
+
+    @Transient
+    private JsonNode socios;
+
+    @ManyToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "socioId")
+    private Socios socioId;
 
     public Fornecedores() {
+        
+    }
+
+    public Fornecedores(Integer fornecedorId, String nome, String cpfCnpj, Socios socioId) {
+        this.fornecedorId = fornecedorId;
+        this.nome = nome;
+        this.cpfCnpj = cpfCnpj;
+        this.socioId = socioId;
     }
 
     public Integer getFornecedorId() {
@@ -37,11 +59,11 @@ public class Fornecedores {
         this.cpfCnpj = cpfCnpj;
     }
 
-    public Socios getSocios() {
+    public JsonNode getSocios() {
         return socios;
     }
 
-    public void setSocios(Socios socios) {
+    public void setSocios(JsonNode socios) {
         this.socios = socios;
     }
 

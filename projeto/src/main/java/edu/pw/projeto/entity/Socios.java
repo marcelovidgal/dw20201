@@ -1,9 +1,17 @@
-package com.example.consumingrest.entity;
+package edu.pw.projeto.entity;
 
+import javax.persistence.*;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
+@Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Socios {
+
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
     private String nome;
     private String numero;
@@ -11,7 +19,16 @@ public class Socios {
     private String pessoaJuridica;
     private Integer socioId;
 
-    public Socios() {
+    public Socios(){
+    
+    }
+
+    public Socios(String nome, String numero, String percentualParticipacao, String pessoaJuridica, Integer socioId) {
+        this.nome = nome;
+        this.numero = numero;
+        this.percentualParticipacao = percentualParticipacao;
+        this.pessoaJuridica = pessoaJuridica;
+        this.socioId = socioId;
     }
 
     public String getNome() {
