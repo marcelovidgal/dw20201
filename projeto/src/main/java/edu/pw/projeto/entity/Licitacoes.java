@@ -42,7 +42,7 @@ public class Licitacoes {
     @Column(name="tipoItemObjeto")
     private String tipoItemObjeto;
 
-    @Column(name="objeto")
+    @Column(name="objeto", columnDefinition="TEXT")
     private String objeto;
 
     @Column(name="dataPublicacao")
@@ -112,23 +112,52 @@ public class Licitacoes {
 	private JsonNode licitantes;
 
 	@Column(name = "coronavirus")
-	private Boolean coronavirus;
+    private Boolean coronavirus;
+    
+    // Relacionamentos
+	@ManyToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "tipoLicitacaoId")
+	private TipoLicitacao tipoLicitacaoId;
+
+	@ManyToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "tipoProcedimentoLicitacaoId")
+	private TipoProcedimentoLicitacao tipoProcedimentoLicitacaoId;
+
+	@ManyToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "statusId")
+	private StatusLicitacao statusId;
+
+    @ManyToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "tipoObjetoId")
+    private TipoObjeto tipoObjetoId;
+    
+    @ManyToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "tipoResultadoId")
+    private TipoResultado tipoResultadoId;
+
+    @ManyToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "licitantesId")
+    private Licitantes licitantesId;
+
+    @ManyToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "unidadeId")
+    private Unidade unidadeId;
 
 	public Licitacoes() {
     
     }
 
-    public Licitacoes(Integer licitacaoId, String numeroProcesso, String anoProcesso, JsonNode unidade, String nomeAutoridade, 
+    public Licitacoes(Integer licitacaoId, String numeroProcesso, String anoProcesso, Unidade unidadeId, String nomeAutoridade, 
                       String cpfAutoridade, String cargoAutoridade, String nomeHomologador, String tipoItemObjeto, String objeto,
-                      String dataPublicacao, String dataAbertura, JsonNode tipoLicitacao, JsonNode tipoProcedimentoLicitacao,
-                      JsonNode statusLicitacao, JsonNode tipoObjeto, String veiculoDivulgacao, Double valorDotacao, String dotacaoReforcada,
+                      String dataPublicacao, String dataAbertura, TipoLicitacao tipoLicitacaoId, TipoProcedimentoLicitacao tipoProcedimentoLicitacaoId,
+                      StatusLicitacao statusId, TipoObjeto tipoObjetoId, String veiculoDivulgacao, Double valorDotacao, String dotacaoReforcada,
                       Double valorTotalDespesa, Double valorGlobalAdjudicado, String dataHomologacao, String dataPublicacaoResultado,
-                      String meioPublicacaoResultado, String dataEnvio, String dataAviso, JsonNode tipoResultado, String naturezaDespesa,
-                      String origemRecurso, JsonNode licitantes, Boolean coronavirus) {
+                      String meioPublicacaoResultado, String dataEnvio, String dataAviso, TipoResultado tipoResultadoId, String naturezaDespesa,
+                      String origemRecurso, Licitantes licitantesId, Boolean coronavirus) {
         this.licitacaoId = licitacaoId;
         this.numeroProcesso = numeroProcesso;
         this.anoProcesso = anoProcesso;
-        this.unidade = unidade;
+        this.unidadeId = unidadeId;
         this.nomeAutoridade = nomeAutoridade;
         this.cpfAutoridade = cpfAutoridade;
         this.cargoAutoridade = cargoAutoridade;
@@ -137,10 +166,10 @@ public class Licitacoes {
         this.objeto = objeto;
         this.dataPublicacao = dataPublicacao;
         this.dataAbertura = dataAbertura;
-        this.tipoLicitacao = tipoLicitacao;
-        this.tipoProcedimentoLicitacao = tipoProcedimentoLicitacao;
-        this.statusLicitacao = statusLicitacao;
-        this.tipoObjeto = tipoObjeto;
+        this.tipoLicitacaoId = tipoLicitacaoId;
+        this.tipoProcedimentoLicitacaoId = tipoProcedimentoLicitacaoId;
+        this.statusId = statusId;
+        this.tipoObjetoId = tipoObjetoId;
         this.veiculoDivulgacao = veiculoDivulgacao;
         this.valorDotacao = valorDotacao;
         this.dotacaoReforcada = dotacaoReforcada;
@@ -151,10 +180,10 @@ public class Licitacoes {
         this.meioPublicacaoResultado = meioPublicacaoResultado;
         this.dataEnvio = dataEnvio;
         this.dataAviso = dataAviso;
-        this.tipoResultado = tipoResultado;
+        this.tipoResultadoId = tipoResultadoId;
         this.naturezaDespesa = naturezaDespesa;
         this.origemRecurso = origemRecurso;
-        this.licitantes = licitantes;
+        this.licitantesId = licitantesId;
         this.coronavirus = coronavirus;
     }
 

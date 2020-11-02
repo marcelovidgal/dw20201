@@ -24,18 +24,12 @@ public class Unidade {
 	@Column(name = "ente")
 	private JsonNode ente;
 
-	@Transient
-	@Column(name = "orgao")
-	private JsonNode orgao;
-
 	public Unidade() {
 	}
 
-	public Unidade(Integer unidadeId, String nome, JsonNode ente, JsonNode orgao) {
+	public Unidade(Integer unidadeId, String nome) {  // Integer unidadeId, String nome, JsonNode ente, Orgao orgaoId
         this.unidadeId = unidadeId;
-		this.nome = nome;
-		this.ente = ente;
-		this.orgao = orgao;
+		this.nome = nome;		
 	}
     
     public Integer getId() {
@@ -68,14 +62,6 @@ public class Unidade {
 
 	public void setEnte(JsonNode ente) {
 		this.ente = ente;
-	}
-
-	public JsonNode getOrgao() {
-		return orgao;
-	}
-
-	public void setOrgao(JsonNode orgao) {
-		this.orgao = orgao;
 	}
 
 }
