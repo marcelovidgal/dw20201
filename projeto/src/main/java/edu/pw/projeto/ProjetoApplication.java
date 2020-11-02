@@ -23,14 +23,10 @@ import edu.pw.projeto.entity.TipoObjeto;
 import edu.pw.projeto.entity.TipoProcedimentoLicitacao;
 import edu.pw.projeto.entity.TipoResultado;
 import edu.pw.projeto.repository.EntesRepository;
-import edu.pw.projeto.repository.NaturezaCargoRepository;
-import edu.pw.projeto.repository.UnidadeRepository;
 import edu.pw.projeto.repository.ServidoresRepository;
 import edu.pw.projeto.repository.FornecedoresRepository;
-import edu.pw.projeto.repository.SociosRepository;
 import edu.pw.projeto.repository.ContratosRepository;
 import edu.pw.projeto.repository.LicitacoesRepository;
-import edu.pw.projeto.repository.LicitantesRepository;
 
 import java.util.*;
 import org.springframework.http.ResponseEntity;
@@ -54,9 +50,9 @@ public class ProjetoApplication {
 	}
 
 	@Bean
-	public CommandLineRunner run(RestTemplate restTemplate, EntesRepository entesRepository, ServidoresRepository servidoresRepository, NaturezaCargoRepository naturezaCargoRepository,
-								UnidadeRepository unidadeRepository, FornecedoresRepository fornecedoresRepository, SociosRepository sociosRepository, ContratosRepository contratosRepository,
-								LicitacoesRepository licitacoesRepository, LicitantesRepository licitantesRepository) throws Exception {
+	public CommandLineRunner run(RestTemplate restTemplate, EntesRepository entesRepository, ServidoresRepository servidoresRepository,
+								FornecedoresRepository fornecedoresRepository, ContratosRepository contratosRepository,
+								LicitacoesRepository licitacoesRepository) throws Exception {
 
 		return args -> {
 
