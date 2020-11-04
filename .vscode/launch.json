@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - ProjetoRestApplication",
+            "request": "launch",
+            "mainClass": "edu.pw.projetorest.ProjetoRestApplication",
+            "projectName": "projeto-rest"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ProjetoApplication",
+            "request": "launch",
+            "mainClass": "edu.pw.projeto.ProjetoApplication",
+            "projectName": "projeto"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-Lab01Application<lab01>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
