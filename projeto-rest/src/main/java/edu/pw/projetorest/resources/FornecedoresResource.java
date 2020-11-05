@@ -19,7 +19,6 @@ public class FornecedoresResource {
 
     @GetMapping("/fornecedores")
     public List<Fornecedores> listaFornecedores() {
-        return fornecedoresRepository.findAll();
+        return (List<Fornecedores>) fornecedoresRepository.findAll();
     }
-
 }

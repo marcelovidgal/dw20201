@@ -1,4 +1,4 @@
-package edu.pw.projeto.entity;
+package edu.pw.projetorest.models;
 
 import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

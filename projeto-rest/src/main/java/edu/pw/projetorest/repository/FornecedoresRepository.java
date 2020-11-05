@@ -1,9 +1,8 @@
 package edu.pw.projetorest.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import edu.pw.projetorest.models.Fornecedores;
+import org.springframework.data.repository.CrudRepository;
 
-public interface FornecedoresRepository extends JpaRepository<Fornecedores, Long> {
+public interface FornecedoresRepository extends CrudRepository<Fornecedores, Long> {
 
 }
