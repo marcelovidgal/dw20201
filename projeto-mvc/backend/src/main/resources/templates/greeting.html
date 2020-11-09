@@ -6,5 +6,13 @@
 </head>
 <body>
     <p th:text="'Hello, ' + ${name} + '!'" />
+
+    <table>
+        <th:block th:each="ente : ${entes}">
+            <tr>
+                <td th:text="${ente.getNome()}">A Smoke Test'</td>
+            </tr>
+        </th:block>
+    </table>
 </body>
 </html>

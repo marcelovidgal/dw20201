@@ -1,0 +1,41 @@
+.list-unstyled {
+    display: flex;    
+    justify-content: center;    
+}
+
+#rodape {
+    margin-top: 0px !important; /* !important pra sobrescrever a margin top default dos componentes que eu uso*/
+    background-color: #8835F6;
+}
+
+#rodape p{
+    margin-bottom: 0;
+    color: #ECE7F9;
+}
+
+#rodape h5{
+    color: white;
+}
+
+#rodape a{
+    color: #ECE7F9;
+}
+
+#rodape a:hover{
+    color: #CABFED;
+}
+
+.footer-copyright{
+    color: white;
+}
+.list-unstyled {
+    display: block;
+}
+
+.list-unstyled a + a{
+    margin-left: 8px;
+}
+
+.listaContatos{
+    padding:0px;
+}
