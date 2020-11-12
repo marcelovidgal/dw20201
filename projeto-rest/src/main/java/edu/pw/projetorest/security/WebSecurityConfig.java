@@ -14,7 +14,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.csrf().disable().authorizeRequests().antMatchers("/home").permitAll()
+        httpSecurity.csrf().disable().authorizeRequests().antMatchers("/swagger-ui.html").permitAll()
                 .antMatchers(HttpMethod.POST, "/login").permitAll().anyRequest().authenticated().and()
 
                 // filtra requisições de login
@@ -28,6 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         // cria uma conta default
-        auth.inMemoryAuthentication().withUser("admin").password("{noop}password").roles("ADMIN");
+        auth.inMemoryAuthentication().withUser("matheus").password("{noop}senha123").roles("ADMIN");
+        auth.inMemoryAuthentication().withUser("bruno").password("{noop}senha123").roles("ADMIN");
     }
 }
