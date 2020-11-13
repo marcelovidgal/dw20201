@@ -9,11 +9,11 @@ import { faTachometerAlt, faMapMarkerAlt, faFileCsv, faClipboardList } from "@fo
 
 import './styles.css';
 
-function TelaPrincipal () {
+function LandingPage () {
 
     return ( 
         <>
-            <NavBar title="Home" isLandingPage={false}/>            
+            <NavBar title="Home" isLandingPage={true}/>            
             <Carrossel/>
             <div className="infoSecao">
                 <table className="table">
@@ -68,4 +68,4 @@ function TelaPrincipal () {
     )
 }
 
-export default TelaPrincipal
+export default LandingPage

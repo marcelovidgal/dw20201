@@ -11,6 +11,17 @@
     
 }
 
+#loginDrawer {
+    display: none;
+}
+
+#loginLink{
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#loginLink:hover{
+    color: rgba(255, 255, 255, 5);
+}
 
 .navContent h3{    
     font-family: 'Poppins', sans-serif;
@@ -67,6 +78,14 @@ header {
     .form-inline { /* Input de busca */
         max-width: 80%;
         margin: 0 auto;  
+    }
+
+    #loginLink{
+        display: none;
+    }
+
+    #loginDrawer{
+        display: block;
     }
 }
 

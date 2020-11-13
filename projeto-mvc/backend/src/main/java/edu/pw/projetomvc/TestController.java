@@ -1,7 +1,6 @@
 package edu.pw.projetomvc;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import java.util.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,12 +17,28 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.ServletException;
 
-@SpringBootApplication
-public class ProjetomvcApplication {
+@RestController
+public class TestController {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ProjetomvcApplication.class, args);
+    @RequestMapping(value = "/anonymous", method = RequestMethod.GET)
+    public ResponseEntity<String> getAnonymous() {
+        return ResponseEntity.ok("Hello Anonymous");
+    }
+
+    //@RolesAllowed("usuario")
+    //@RequestMapping(value = "/user", method = RequestMethod.GET)
+    //public ResponseEntity<String> getUser(@RequestHeader String Authorization) {
+    //    return ResponseEntity.ok("Hello User");
+    //}
+//
+    @RequestMapping(value = "/private", method = RequestMethod.GET)
+    public ResponseEntity<String> getPrivate() {
+        return ResponseEntity.ok("Boa!");
+    }
+
+    @GetMapping(path = "/logout")
+	public String logout(HttpServletRequest request) throws ServletException {
+		request.logout();
+		return "/";
 	}
-
-
 }

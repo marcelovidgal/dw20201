@@ -8,6 +8,7 @@ import ToolkitProvider, { Search, CSVExport } from 'react-bootstrap-table2-toolk
 
 import NavBar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import Login from '../Login';
 
 import './styles.css';
 
@@ -76,7 +77,8 @@ function Fornecedores () {
 
     return ( 
         <>
-            <NavBar title="Listagens"/>
+            <Login component={this} isComponent={true} ></Login>
+            <NavBar title="Listagens" isLandingPage={false}/>
             <div className="container">
             { loading ? (
                     <Spinner className="loadingAnim" animation="border" />
