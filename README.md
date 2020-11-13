@@ -19,10 +19,13 @@ cd dw20201\projeto-rest
 ```
 
 3- Para testar no POSTMAN usar os seguintes usuários:
+
 Login: matheus
+
 senha: senha123
 
 Login: bruno
+
 senha: senha123
 
 Enviar o usuário como requisição POST para o endereço localhost:8080/login.
