@@ -1,6 +1,7 @@
 # Instruções para Aplicação TCE
 
 A seguir será apresentado um passo a passo de como executar o projeto em questão.
+
 Vale lembrar que todo o projeto foi desenvolvido e testado no Visual Studio Code e usando o java 8.
 
 ## API Rest
@@ -9,7 +10,7 @@ A API Rest está localizada no projeto chamado "projeto-rest".
 
 1- Primeiramente, você deve estar localizado nesta pasta a partir da seguinte linha de comando:
 ```
-cd dw20201-master\projeto-rest
+cd dw20201\projeto-rest
 ```
 
 2- Uma vez na pasta, basta executar o comando abaixo na linha de comando para rodar a aplicação:
@@ -27,11 +28,13 @@ cd keycloak-11.0.3\bin
 ```
 
 2- Nessa etapa você precisa executar o arquivo `standalone` com um duplo clique.
-    Para usuários Windows, execute o arquivo `.bat`:
+
+Para usuários Windows, execute o arquivo `.bat`:
 ```
 standalone.bat
 ```
-    Para usuários Linux/Unix, execute o arquivo `.sh`:
+
+Para usuários Linux/Unix, execute o arquivo `.sh`:
 ```
 standalone.sh
 ```
@@ -44,7 +47,7 @@ Para a execução do frontend, você deve abrir outro projeto no Visual Studio C
 
 1- Primeiramente esteja na pasta do projeto. Você deve abrir a pasta "projeto-mvc" e em seguida a pasta "frontend".
 ```
-cd dw20201-master\projeto-mvc\frontend
+cd dw20201\projeto-mvc\frontend
 ```
 
 2- Uma vez na pasta correta, execute o comando abaixo na linha de comando para iniciar a aplicação
