@@ -1,12 +1,20 @@
 import React from 'react';
 import './assets/styles/global.css';
 import Routes from './routes';
+import { ReactKeycloakProvider } from '@react-keycloak/web';
+import { useKeycloak } from '@react-keycloak/web';
+import keycloak from './services/keycloak';
 
 function App() {
+  
   return (
-    <div className="App">
-      <Routes />    
-    </div>
+    <ReactKeycloakProvider
+      authClient={keycloak}  
+    >
+      <div className="App">
+        <Routes />    
+      </div>    
+    </ReactKeycloakProvider>
   );
 }
 

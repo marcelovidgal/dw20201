@@ -8,7 +8,6 @@ import ToolkitProvider, { Search, CSVExport } from 'react-bootstrap-table2-toolk
 
 import Footer from '../../components/Footer';
 import NavBar from '../../components/Navbar';
-import Login from '../Login';
 
 import './styles.css';
 
@@ -21,7 +20,7 @@ function Contratos () {
 
     async function getContratos(){
         try{
-            // O "api" (importado da pasta services) vai fazer uma requisição do tipo get na rota '/entes' e então terá como resposta o que vem do frontend
+            // O "api" (importado da pasta services) vai fazer uma requisição do tipo get na rota '/contratos' e então terá como resposta o que vem do frontend
             await api.get('/contratos').then(response => {
                 setContratos(response.data);
                 setLoading(false);
@@ -90,9 +89,8 @@ function Contratos () {
 
 
     return ( 
-        <>
-            <Login component={this} isComponent={true} ></Login>
-            <NavBar title="Listagens" isLandingPage={false}/>
+        <>            
+            <NavBar title="Listagens"/>
             <div className="container">
             { loading ? (
                     <Spinner className="loadingAnim" animation="border" />

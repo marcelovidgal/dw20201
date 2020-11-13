@@ -13,7 +13,7 @@ function TelaPrincipal () {
 
     return ( 
         <>
-            <NavBar title="Home" isLandingPage={false}/>            
+            <NavBar title="Home"/>            
             <Carrossel/>
             <div className="infoSecao">
                 <table className="table">
@@ -24,7 +24,7 @@ function TelaPrincipal () {
                                     <FontAwesomeIcon icon={faClipboardList} size="5x"/>
                                 </p>
                                 <p>
-                                    A aplicação apresenta uma listagem dos dados referentes à Entes, 
+                                    A aplicação apresenta uma listagem dos dados referentes a 
                                     Servidores, Contratos, Fornecedores e Licitações, obtidos pelo 
                                     Tribunal de Contas do Estado do Maranhão. Os dados são organizados em 
                                     tabelas interativas.

@@ -8,7 +8,6 @@ import ToolkitProvider, { Search, CSVExport } from 'react-bootstrap-table2-toolk
 
 import NavBar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import Login from '../Login';
 
 import './styles.css';
 
@@ -21,7 +20,7 @@ function Servidores () {
 
     async function getServidores(){
         try{
-            // O "api" (importado da pasta services) vai fazer uma requisição do tipo get na rota '/entes' e então terá como resposta o que vem do frontend
+            // O "api" (importado da pasta services) vai fazer uma requisição do tipo get na rota '/servidores' e então terá como resposta o que vem do frontend
             await api.get('/servidores').then(response => {
                 setServidores(response.data);
                 setLoading(false);
@@ -83,9 +82,8 @@ function Servidores () {
 
 
     return ( 
-        <>
-            <Login component={this} isComponent={true} ></Login>
-            <NavBar title="Listagens" isLandingPage={false}/>
+        <>            
+            <NavBar title="Listagens"/>
             <div className="container">
             { loading ? (
                     <Spinner className="loadingAnim" animation="border" />
