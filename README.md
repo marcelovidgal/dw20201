@@ -18,6 +18,21 @@ cd dw20201\projeto-rest
 ./mvnw spring-boot:run
 ```
 
+3- Para testar no POSTMAN usar os seguintes usuários:
+
+Login: matheus
+
+senha: senha123
+
+Login: bruno
+
+senha: senha123
+
+Enviar o usuário como requisição POST para o endereço localhost:8080/login.
+
+Com isso, adicionar uma key Authorization com o value sendo o value do tipo Beader retornado no header da requisição POST.
+
+
 ## Inicializando o servidor Keycloak
 
 Para ativar o servidor do Keycloak, você precisa abrir a pasta "keycloak-11.0.3" existente na raíz do repositório e em seguida deve seguir os passos abaixo:
