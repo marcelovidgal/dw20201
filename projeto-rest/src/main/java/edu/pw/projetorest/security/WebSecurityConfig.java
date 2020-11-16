@@ -6,10 +6,13 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
@@ -24,6 +27,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // filtra outras requisições para verificar a presença do JWT no header
                 .addFilterBefore(new JWTAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
+
+    public void addCorsMappings(CorsRegistry registry) {
+		registry.addMapping("/**").allowedOrigins("*")
+		.allowedMethods("HEAD", "GET", "PUT", "POST",
+		"DELETE", "PATCH").allowedHeaders("*");
+	}
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {

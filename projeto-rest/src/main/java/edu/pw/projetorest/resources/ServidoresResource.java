@@ -18,7 +18,7 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping(value = "/api")
 @Api(value = "API Restful Servidores")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = { "http://localhost:3000", "http://localhost:4200" })
 public class ServidoresResource {
     @Autowired
     ServidoresRepository servidoresRepository;
